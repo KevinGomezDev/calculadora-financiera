@@ -5,7 +5,7 @@ const simpleinterest = ()  => ({
 
   interestRate: (futureValue, presentValue, periods) => (( (futureValue / presentValue) - 1 ) * ( 1 / periods )),
 
-  interestPeriods: (futureValue, presentValue, interestRate) => ((( futureValue / presentValue ) - 1) * ( 1 / interestRate )),
+  interestPeriods: (futureValue, presentValue, interestPercentage) => (((futureValue / presentValue) - 1) * (1 / interestPercentage )),
 })
 
 export default simpleinterest
