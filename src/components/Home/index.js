@@ -12,6 +12,7 @@ class Home extends Component {
   constructor(props) {
     super(props)
     this.state = {
+      option: 'futureValue',
       formValues: {
         presentValue: 0,
         interestPercentage: 0,
@@ -63,6 +64,10 @@ class Home extends Component {
     })
   }
 
+  handleSelect = (e) => {
+    this.setState({ option: e.target.value })
+  }
+
   render() {
     return (
       <div className="Home">
@@ -71,17 +76,30 @@ class Home extends Component {
           <h1 className="Home-title">Calculadora Financiera</h1>
         </header>
         <div className='Home-content'>
-          <div className="Home-form">
-            <h2>Formulario</h2>
+        <div className='Home-select'>
+          <h3>¿Que valor desea conocer?</h3>
+          <select value={this.state.option} onChange={this.handleSelect}>
+            <option value="futureValue">Valor Futuro</option>
+            <option value="presentValue">Valor Presente</option>
+              <option value="interestPercentage">Tasa de interés</option>
+            <option value="periods">Periodos</option>
+          </select>
+        </div>
+        <div className='Home-container'>
+          <div className='Home-form'>
             <form onSubmit={this.handleSubmit}>
-              <Input placeholder='Valor' name='presentValue' onChange={this.handleOnChange}/>
-              <Input placeholder='Tasa de Interés' name='interestPercentage' onChange={this.handleOnChange}/>
-              <Input placeholder='Periodos' name='periods' onChange={this.handleOnChange}/>
-              <Input type="submit" value="Calcular" />
+              {(this.state.option !== 'presentValue')
+                && <Input label='Valor Presente' name='presentValue' onChange={this.handleOnChange} />}
+              {(this.state.option !== 'futureValue')
+                && <Input label='Valor Futuro' name='futureValue' onChange={this.handleOnChange} />}
+              {(this.state.option !== 'interestPercentage')
+                &&<Input label='Tasa de Interés' name='interestPercentage' onChange={this.handleOnChange} />}
+              {(this.state.option !== 'periods')
+                && <Input label='Periodos' name='periods' onChange={this.handleOnChange} />}
+              <Input type="submit" className={'Home-button'} value="Calcular" />
             </form>
           </div>
-          <div>
-            <h2>Resultados</h2>
+          <div className='Home-results-container'>
               <div className={'Home-results'}>
               {!!this.state.simpleInterest && <div>
                 <h3>Interés Simple</h3>
@@ -105,6 +123,7 @@ class Home extends Component {
               </div>}
             </div>
           </div>
+        </div>
         </div>
       </div>
     );

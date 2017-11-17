@@ -42,14 +42,33 @@ body {
   width: 100%;
 }
 
+.Home-container {
+  display: flex;
+  justify-content: space-between;
+}
+
 .Home-form {
   display: flex;
   flex-direction: column;
+  width: 50%;
+}
+
+.Home-results-container {
+  width: 50%;
 }
 
 .Home-results {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+}
+
+.Home-button {
+  color: white;
+  cursor: pointer;
+  background-color: #336E7B;
+  font-size: 14px;
+  margin-top: 20px;
+  width: 300px;
 }
 
 @media screen and (max-width: 1200px) {

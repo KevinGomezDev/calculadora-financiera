@@ -1,0 +1,29 @@
+.Input-container {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  max-width: 300px;
+  position: relative;
+}
+
+.Input-container input {
+  position: absolute;
+  right: 0;
+}
+
+.label {
+  color: #336E7B;
+}
+
+.input {
+  border: 1px solid #336E7B;
+  padding: 8px;
+  outline: 0;
+}
+
+input:-moz-placeholder,
+input:-webkit-input-placeholder,
+input:-ms-input-placeholder {
+  font-size: 22px;
+}
