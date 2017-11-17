@@ -60,6 +60,8 @@ body {
 }
 
 .Home-results-container {
+  border: 1px solid #336E7B;
+  padding: 0 1em;
   width: 50%;
 }
 
