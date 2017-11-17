@@ -1,7 +1,6 @@
 body {
   height: 100%;
   width: 100%;
-  overflow: hidden;
 }
 
 .Home {
@@ -89,4 +88,28 @@ body {
     padding-top: 1em;
     padding-bottom: 1em;
   }
+
+  .Home-container {
+    flex-direction: column;
+  }
+
+  .Home-content {
+    margin: 0;
+    border: 0;
+    border-radius: 0;
+    padding: 0;
+    text-align: center;
+    width: 100%;
+  }
+
+  .Home-form {
+    width: 100%;
+  }
+  .Home-results-container {
+    border: 1px solid #336E7B;
+    padding: 1em;
+    margin: 0 auto;
+    width:  80%;
+  }
+
 }

@@ -8,12 +8,13 @@
 }
 
 .Input-container input {
-  position: absolute;
-  right: 0;
+  width: 50%;
 }
 
 .label {
+  display: inline-block;
   color: #336E7B;
+  width: 50%;
 }
 
 .input {
@@ -26,4 +27,10 @@ input:-moz-placeholder,
 input:-webkit-input-placeholder,
 input:-ms-input-placeholder {
   font-size: 22px;
+}
+@media screen and (max-width: 1200px) {
+  .Input-container {
+    max-width: initial;
+    width: 80%;
+  }
 }
