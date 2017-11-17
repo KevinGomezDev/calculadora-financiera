@@ -84,8 +84,9 @@ class Home extends Component {
     return (
       <div className="Home">
         <header className="Home-sidebar">
-          <FaCalculator className={'Home-calculatorIcon'} />
-          <h1 className="Home-title">Calculadora Financiera</h1>
+        <FaCalculator className={'Home-calculatorIcon'} />
+        <img src={require('../../assets/logo.png')} className='Home-logo' />
+        <h1 className="Home-title">Calculadora Financiera</h1>
         </header>
         <div className='Home-content'>
         <div className='Home-select'>
