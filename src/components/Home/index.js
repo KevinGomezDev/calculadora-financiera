@@ -35,18 +35,19 @@ class Home extends Component {
   handleSubmit = (e) => {
     e.preventDefault()
     const presentValue = this.state.formValues.presentValue
+    const futureValue = this.state.formValues.presentValue
     const interestPercentage = this.state.formValues.interestPercentage
     const periods = this.state.formValues.periods
 
     const simpleFutureVal = simpleinterest().futureValue(presentValue, interestPercentage, periods)
-    const simplePresentVal = simpleinterest().presentValue(simpleFutureVal, periods, interestPercentage)
-    const simpleRate = simpleinterest().interestRate(simpleFutureVal, simplePresentVal, periods)
-    const simplePeriods = simpleinterest().interestPeriods(simpleFutureVal, simplePresentVal, simpleRate)
+    const simplePresentVal = simpleinterest().presentValue(futureValue, periods, interestPercentage)
+    const simpleRate = simpleinterest().interestRate(futureValue, presentValue, periods)
+    const simplePeriods = simpleinterest().interestPeriods(futureValue, presentValue, interestPercentage)
 
     const compoundFutureVal = compoundinterest().futureValue(presentValue, interestPercentage, periods)
-    const compoundPresentVal = compoundinterest().presentValue(compoundFutureVal, periods, interestPercentage)
-    const compoundRate = compoundinterest().interestRate(compoundFutureVal, compoundPresentVal, periods)
-    const compoundPeriods = compoundinterest().interestPeriods(compoundFutureVal, compoundPresentVal, compoundRate)
+    const compoundPresentVal = compoundinterest().presentValue(futureValue, periods, interestPercentage)
+    const compoundRate = compoundinterest().interestRate(futureValue, presentValue, periods)
+    const compoundPeriods = compoundinterest().interestPeriods(futureValue, presentValue, interestPercentage)
 
     this.setState({
       simpleInterest: {
@@ -65,7 +66,14 @@ class Home extends Component {
   }
 
   handleSelect = (e) => {
-    this.setState({ option: e.target.value })
+    this.setState({
+      option: e.target.value,
+      formValues: {
+        presentValue: 0,
+        interestPercentage: 0,
+        periods: 0,
+      },
+     })
   }
 
   render() {
