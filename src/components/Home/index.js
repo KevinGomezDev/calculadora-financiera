@@ -77,7 +77,7 @@ class Home extends Component {
               <Input placeholder='Valor' name='presentValue' onChange={this.handleOnChange}/>
               <Input placeholder='Tasa de Interés' name='interestPercentage' onChange={this.handleOnChange}/>
               <Input placeholder='Periodos' name='periods' onChange={this.handleOnChange}/>
-              <input type="submit" value="Submit" />
+              <Input type="submit" value="Calcular" />
             </form>
           </div>
           <div>
